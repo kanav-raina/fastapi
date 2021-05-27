@@ -33,7 +33,7 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
 
-@app.delete('/blog/{id}')
+@app.delete('/users/{id}')
 def destory(id,db:Session = Depends(get_db)):
     user=db.query(models.User).filter(models.User.id == id)
     if not user.first():
